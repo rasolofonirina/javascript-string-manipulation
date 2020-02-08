@@ -1,7 +1,7 @@
 // Create a tagged template lf`...` that formats text using LF line endings.
-var lf = () => {};
+const lf = () => {};
 
-var transformLineEnding = (string, lineEnding) => {
+const transformLineEnding = (string, lineEnding) => {
   if (lineEnding === LineEndings.CR) {
     string = LineEndingReplacements.replaceCRLF(string, "\r");
     string = LineEndingReplacements.replaceLF(string, "\r");
@@ -15,13 +15,13 @@ var transformLineEnding = (string, lineEnding) => {
   return string;
 };
 
-var LineEndings = {
+const LineEndings = {
   CR: "CR",
   LF: "LF",
   CRLF: "CRLF"
 };
 
-var LineEndingReplacements = {
+const LineEndingReplacements = {
   replaceCR: (string, newEnding) =>
     string.replace(/(\r+)([^\n]|$)/g, (_match, p1, p2) => {
       return `${newEnding.repeat(p1.length)}${p2}`;
